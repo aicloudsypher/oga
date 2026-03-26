@@ -42,40 +42,43 @@ export default function App() {
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-secondary text-white shadow-lg py-4" : "bg-transparent text-white py-6"
+          isScrolled ? "bg-secondary text-white shadow-lg py-3" : "bg-transparent text-white py-5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          {/* Logo Left */}
           <div 
-            className="group flex items-center space-x-2 cursor-pointer" 
+            className="group flex items-center space-x-2 cursor-pointer shrink-0" 
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <div className="border-2 border-primary px-3 py-1 rounded-sm bg-primary/10 group-hover:bg-primary/20 transition-colors">
-              <span className="font-serif text-2xl font-black tracking-tighter uppercase text-white">
+            <div className="border-2 border-primary px-2 py-0.5 rounded-sm bg-primary/10 group-hover:bg-primary/20 transition-colors">
+              <span className="font-serif text-xl font-black tracking-tighter uppercase text-white">
                 OGA
               </span>
             </div>
-            <div className="font-serif text-xl font-bold tracking-wider uppercase">
-              Oga Madam <span className="text-primary">Kitchen</span>
+            <div className="hidden sm:block font-serif text-lg font-bold tracking-wider uppercase">
+              Oga Madam <span className="text-primary italic">Kitchen</span>
             </div>
           </div>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide uppercase">
-            <button onClick={() => scrollToSection("menu")} className="hover:text-primary transition-colors">Menu</button>
-            <button onClick={() => scrollToSection("gallery")} className="hover:text-primary transition-colors">Gallery</button>
-            <button onClick={() => scrollToSection("services")} className="hover:text-primary transition-colors">Services</button>
-            <button onClick={() => scrollToSection("about")} className="hover:text-primary transition-colors">About</button>
-            <button onClick={() => scrollToSection("location")} className="hover:text-primary transition-colors">Location</button>
-            <a href={phoneLink} className="bg-primary text-secondary px-6 py-2.5 rounded hover:bg-primary-hover transition-colors font-semibold">
-              Call Now
-            </a>
+          {/* Centered Nav Links */}
+          <div className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 space-x-8 text-[11px] font-bold tracking-[0.2em] uppercase text-white/80">
+            <button onClick={() => scrollToSection("menu")} className="hover:text-primary transition-colors hover:scale-105 transform">Menu</button>
+            <button onClick={() => scrollToSection("gallery")} className="hover:text-primary transition-colors hover:scale-105 transform">Gallery</button>
+            <button onClick={() => scrollToSection("services")} className="hover:text-primary transition-colors hover:scale-105 transform">Services</button>
+            <button onClick={() => scrollToSection("about")} className="hover:text-primary transition-colors hover:scale-105 transform">About</button>
+            <button onClick={() => scrollToSection("location")} className="hover:text-primary transition-colors hover:scale-105 transform">Location</button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* CTA Right */}
+          <div className="flex items-center space-x-4">
+            <a href={phoneLink} className="hidden md:block bg-primary text-secondary px-6 py-2.5 rounded-full hover:bg-primary-hover transition-all font-bold uppercase text-[10px] tracking-widest shadow-lg hover:shadow-primary/20">
+              Order Now
+            </a>
+            <button className="lg:hidden text-white p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -100,109 +103,70 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Split Hero Section */}
-      <section className="relative min-h-screen md:h-screen flex flex-col md:flex-row overflow-hidden bg-secondary">
-        {/* Left Side: Images */}
-        <div className="relative w-full md:w-1/2 h-[50vh] md:h-full overflow-hidden flex">
-          {/* Main Hero Image */}
-          <div className="absolute inset-0 z-0 scale-110">
-            <img
-              src="/hero_west_african.png"
-              alt="Authentic West African Cuisine"
-              className="w-full h-full object-cover object-center transition-transform duration-10000 hover:scale-125"
-              referrerPolicy="no-referrer"
-            />
+      {/* Modern Hero Section (Design 2) */}
+      <section className="relative min-h-[90vh] md:h-screen flex items-center pt-24 md:pt-0 overflow-hidden bg-[#121212]">
+        {/* Background Texture Overlay */}
+        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          {/* Text Content (Left) */}
+          <div className="text-left max-w-xl">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-6xl md:text-8xl font-serif text-white mb-8 leading-[1.1] drop-shadow-2xl">
+                Oga Madam <br/>
+                <span className="text-primary italic">Kitchen</span>
+              </h1>
+              <p className="text-white/70 text-lg md:text-xl mb-12 max-w-md leading-relaxed">
+                Experience the soulful essence of West African and Kenyan flavors, masterfully crafted for the modern palate.
+              </p>
+              <motion.div 
+                className="flex flex-wrap gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <button 
+                  onClick={() => scrollToSection("menu")}
+                  className="bg-primary text-secondary px-10 py-5 rounded-full font-black uppercase tracking-widest hover:bg-primary-hover transition-all shadow-[0_10px_30px_rgba(234,179,8,0.3)] hover:-translate-y-1"
+                >
+                  Explore Menu
+                </button>
+              </motion.div>
+            </motion.div>
           </div>
-          {/* Overlay Grid of smaller images */}
-          <div className="absolute inset-0 z-10 bg-black/30 pointer-events-none"></div>
-          <div className="relative z-20 w-full h-full flex items-end p-8">
-            <div className="grid grid-cols-3 gap-3 w-full max-w-md">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="aspect-square rounded-lg border-2 border-primary/50 overflow-hidden shadow-2xl"
-              >
-                <img src="/gallery/fufu_soup.png" alt="Fufu & Soup" className="w-full h-full object-cover" />
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="aspect-square rounded-lg border-2 border-primary/50 overflow-hidden shadow-2xl"
-              >
-                <img src="/gallery/pilau.png" alt="Kenyan Pilau" className="w-full h-full object-cover" />
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="aspect-square rounded-lg border-2 border-primary/50 overflow-hidden shadow-2xl"
-              >
-                <img src="/gallery/suya.png" alt="Suya" className="w-full h-full object-cover" />
-              </motion.div>
-            </div>
+
+          {/* Hero Image Centerpiece (Right) */}
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="relative z-10"
+            >
+              <div className="relative aspect-square rounded-full overflow-hidden border-8 border-white/5 shadow-[0_0_80px_rgba(0,0,0,0.6)]">
+                <img
+                  src="/hero_west_african.png"
+                  alt="Signature Jollof Rice"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Floating Element Accents */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 backdrop-blur-xl rounded-full -z-10 animate-pulse"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 backdrop-blur-3xl rounded-full -z-10"></div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Right Side: Text in Pyramid Shape */}
-        <div className="relative w-full md:w-1/2 h-full flex items-center justify-center p-6 md:p-12">
-          {/* Pyramid Graphic Background */}
-          <div className="absolute inset-0 flex items-center justify-center -z-0 opacity-20 pointer-events-none">
-            <div 
-              className="w-[80%] h-[80%] bg-primary/20 backdrop-blur-md"
-              style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
-            ></div>
-          </div>
-
-          {/* Text Content */}
-          <div className="relative z-10 text-center max-w-2xl px-4 md:px-8 mt-12 md:mt-0">
-            <motion.p 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="text-primary font-bold tracking-[0.3em] uppercase mb-6 text-sm md:text-base bg-white/5 py-2 px-6 rounded-full inline-block backdrop-blur-sm"
-            >
-              Welcome to Oga Madam Kitchen
-            </motion.p>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-12 leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
-            >
-              The Heartbeat <br/>
-              <span className="relative inline-block mt-4">
-                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#FFF2AD] to-primary italic">
-                  African Cuisine
-                </span>
-                <motion.span 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '110%' }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="absolute bottom-2 -left-[5%] h-3 md:h-5 bg-primary/30 -z-10 -rotate-1 rounded-sm"
-                />
-              </span>
-            </motion.h1>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 md:mt-24"
-            >
-              <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-primary text-secondary px-10 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-primary-hover hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2">
-                <MapPin size={22} />
-                Visit Us
-              </a>
-              <button onClick={() => scrollToSection("services")} className="w-full sm:w-auto bg-white/5 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-white/10 hover:scale-105 transition-all flex items-center justify-center gap-2">
-                Learn More
-                <ArrowRight size={22} />
-              </button>
-            </motion.div>
-          </div>
+        {/* Torn Paper Bottom Edge */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg className="relative block w-full h-[60px] text-accent" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.32,37.5,72.74,21.19,144.92,45.45,221.68,52.5S954,136.19,1012,126c62.61-11,123.6-43,188-43V0Z" fill="currentColor"></path>
+          </svg>
         </div>
       </section>
 
