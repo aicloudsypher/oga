@@ -104,10 +104,9 @@ export default function App() {
       </AnimatePresence>
 
       {/* Modern Hero Section (Design 2) */}
-      <section className="relative min-h-[90vh] md:h-screen flex items-center pt-24 md:pt-0 overflow-hidden bg-[#121212]">
-        {/* Background Texture Overlay */}
-        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+      <section className="relative min-h-[90vh] md:h-screen flex items-center pt-24 md:pt-0 overflow-hidden bg-[#0a0a0a]">
+        {/* Background Gradient Overlay */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
 
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid md:grid-cols-[1fr_1.1fr] gap-8 md:gap-12 items-center">
           {/* Text Content (Left) */}
@@ -160,13 +159,6 @@ export default function App() {
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 backdrop-blur-3xl rounded-full -z-10"></div>
             </motion.div>
           </div>
-        </div>
-
-        {/* Torn Paper Bottom Edge */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-          <svg className="relative block w-full h-[60px] text-accent" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.32,37.5,72.74,21.19,144.92,45.45,221.68,52.5S954,136.19,1012,126c62.61-11,123.6-43,188-43V0Z" fill="currentColor"></path>
-          </svg>
         </div>
       </section>
 
