@@ -91,7 +91,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[80vh] md:h-screen flex items-start justify-center overflow-hidden pt-32 md:pt-48">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -106,7 +106,7 @@ export default function App() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.4)_0%,transparent_50%)]"></div>
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mt-16 drop-shadow-2xl">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto drop-shadow-2xl">
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
