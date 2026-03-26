@@ -46,8 +46,18 @@ export default function App() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <div className="font-serif text-2xl font-bold tracking-wider uppercase cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-            Oga Madam <span className="text-primary">Kitchen</span>
+          <div 
+            className="group flex items-center space-x-2 cursor-pointer" 
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <div className="border-2 border-primary px-3 py-1 rounded-sm bg-primary/10 group-hover:bg-primary/20 transition-colors">
+              <span className="font-serif text-2xl font-black tracking-tighter uppercase text-white">
+                OGA
+              </span>
+            </div>
+            <div className="font-serif text-xl font-bold tracking-wider uppercase">
+              Oga Madam <span className="text-primary">Kitchen</span>
+            </div>
           </div>
 
           {/* Desktop Nav */}
