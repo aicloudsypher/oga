@@ -20,6 +20,15 @@ export default function App() {
   const mapsLink = "https://share.google/Lq7FU2T10rKfLxMWV";
   const address = "6000 Shingle Creek Pkwy, Minneapolis, MN 55430";
 
+  const menuItems = [
+    { name: "Jollof Rice Feast", description: "Smoky, spicy West African rice served with fried plantain and choice of protein.", price: "$18", category: "West African" },
+    { name: "Egusi Soup & Pounded Yam", description: "Rich melon seed soup with spinach and assorted meats, served with soft pounded yam.", price: "$22", category: "West African" },
+    { name: "Pilau Special", description: "Fragrant Kenyan spiced rice with tender beef or goat, served with kachumbari.", price: "$19", category: "Kenyan" },
+    { name: "Githeri", description: "Traditional Kenyan maize and beans stew, slow-cooked for rich flavor and texture.", price: "$15", category: "Kenyan" },
+    { name: "Suya Platter", description: "Spicy grilled skewered beef seasoned with authentic yaji spice.", price: "$16", category: "West African" },
+    { name: "Nyama Choma", description: "Authentic Kenyan-style goat or beef roasted to perfection.", price: "$25", category: "Kenyan" },
+  ];
+
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
@@ -43,6 +52,7 @@ export default function App() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide uppercase">
+            <button onClick={() => scrollToSection("menu")} className="hover:text-primary transition-colors">Menu</button>
             <button onClick={() => scrollToSection("services")} className="hover:text-primary transition-colors">Services</button>
             <button onClick={() => scrollToSection("about")} className="hover:text-primary transition-colors">About</button>
             <button onClick={() => scrollToSection("location")} className="hover:text-primary transition-colors">Location</button>
@@ -67,6 +77,7 @@ export default function App() {
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-40 bg-secondary text-white pt-24 px-6 flex flex-col space-y-6 text-lg uppercase tracking-wider font-medium"
           >
+            <button onClick={() => scrollToSection("menu")} className="text-left py-4 border-b border-white/10">Menu</button>
             <button onClick={() => scrollToSection("services")} className="text-left py-4 border-b border-white/10">Services</button>
             <button onClick={() => scrollToSection("about")} className="text-left py-4 border-b border-white/10">About</button>
             <button onClick={() => scrollToSection("location")} className="text-left py-4 border-b border-white/10">Location</button>
@@ -134,6 +145,36 @@ export default function App() {
               <ArrowRight size={20} />
             </button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Menu Section */}
+      <section id="menu" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-primary font-bold uppercase tracking-widest text-sm mb-2">Our Signature Dishes</p>
+            <h2 className="text-3xl md:text-5xl font-serif mb-4">The Oga Madam <span className="italic text-primary">Menu</span></h2>
+            <div className="w-24 h-1 bg-primary mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+            {menuItems.map((item, index) => (
+              <div key={index} className="flex flex-col">
+                <div className="flex justify-between items-baseline mb-3 pb-2 border-b border-gray-100">
+                  <h3 className="text-xl font-serif font-bold group-hover:text-primary transition-colors">{item.name}</h3>
+                  <span className="text-primary font-bold">{item.price}</span>
+                </div>
+                <p className="text-secondary/70 text-sm leading-relaxed mb-4">{item.description}</p>
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">{item.category}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-20 text-center">
+            <a href={phoneLink} className="inline-block bg-secondary text-white px-10 py-4 rounded font-semibold uppercase tracking-widest hover:bg-black transition-all shadow-xl hover:shadow-2xl">
+              Order Now For Pickup
+            </a>
+          </div>
         </div>
       </section>
 
