@@ -53,6 +53,7 @@ export default function App() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide uppercase">
             <button onClick={() => scrollToSection("menu")} className="hover:text-primary transition-colors">Menu</button>
+            <button onClick={() => scrollToSection("gallery")} className="hover:text-primary transition-colors">Gallery</button>
             <button onClick={() => scrollToSection("services")} className="hover:text-primary transition-colors">Services</button>
             <button onClick={() => scrollToSection("about")} className="hover:text-primary transition-colors">About</button>
             <button onClick={() => scrollToSection("location")} className="hover:text-primary transition-colors">Location</button>
@@ -78,6 +79,7 @@ export default function App() {
             className="fixed inset-0 z-40 bg-secondary text-white pt-24 px-6 flex flex-col space-y-6 text-lg uppercase tracking-wider font-medium"
           >
             <button onClick={() => scrollToSection("menu")} className="text-left py-4 border-b border-white/10">Menu</button>
+            <button onClick={() => scrollToSection("gallery")} className="text-left py-4 border-b border-white/10">Gallery</button>
             <button onClick={() => scrollToSection("services")} className="text-left py-4 border-b border-white/10">Services</button>
             <button onClick={() => scrollToSection("about")} className="text-left py-4 border-b border-white/10">About</button>
             <button onClick={() => scrollToSection("location")} className="text-left py-4 border-b border-white/10">Location</button>
@@ -117,18 +119,10 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight px-4"
+            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-10 leading-tight px-4"
           >
             The Heartbeat of <br/><span className="text-primary italic">African Cuisine</span>
           </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto font-light"
-          >
-            Experience authentic West African and Kenyan flavors right here in Minneapolis. Crafted with passion, served with warmth.
-          </motion.p>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -174,6 +168,39 @@ export default function App() {
             <a href={phoneLink} className="inline-block bg-secondary text-white px-10 py-4 rounded font-semibold uppercase tracking-widest hover:bg-black transition-all shadow-xl hover:shadow-2xl">
               Order Now For Pickup
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-24 bg-secondary overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-primary font-bold uppercase tracking-widest text-sm mb-2">Visual Experience</p>
+            <h2 className="text-3xl md:text-5xl font-serif mb-4 text-white">Our <span className="italic text-primary">Gallery</span></h2>
+            <div className="w-24 h-1 bg-primary mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pb-12">
+            {[
+              { src: "/gallery/fufu_soup.png", alt: "Authentic Fufu and Soup", size: "lg:col-span-2 lg:row-span-2" },
+              { src: "/gallery/pilau.png", alt: "Kenyan Beef Pilau", size: "" },
+              { src: "/gallery/suya.png", alt: "West African Suya", size: "" },
+              { src: "/gallery/interior.png", alt: "Oga Madam Kitchen Ambiance", size: "lg:col-span-2" }
+            ].map((img, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className={`relative group rounded-2xl overflow-hidden cursor-pointer ${img.size}`}
+              >
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
+                  <span className="text-white font-serif italic text-xl border-b border-primary pb-1">{img.alt}</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
