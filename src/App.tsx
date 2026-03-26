@@ -78,13 +78,13 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?q=80&w=2070&auto=format&fit=crop"
             alt="Delicious African Cuisine"
-            className="w-full h-full object-cover brightness-110 contrast-105"
+            className="w-full h-full object-cover object-center"
             referrerPolicy="no-referrer"
           />
           {/* Gradient just for the top nav and bottom transition */}
@@ -106,7 +106,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight"
+            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight px-4"
           >
             The Heartbeat of <br/><span className="text-primary italic">African Cuisine</span>
           </motion.h1>
