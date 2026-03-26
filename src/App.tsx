@@ -91,7 +91,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] md:h-screen flex items-start justify-center overflow-hidden pt-32 md:pt-48">
+      <section className="relative h-[85vh] md:h-screen flex items-start md:items-center justify-center overflow-hidden pt-20 md:pt-0">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -119,7 +119,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-10 leading-tight px-4"
+            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-32 md:mb-10 leading-tight px-4"
           >
             The Heartbeat of <br/><span className="text-primary italic">African Cuisine</span>
           </motion.h1>
