@@ -109,7 +109,7 @@ export default function App() {
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
         <div className="absolute inset-0 z-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
 
-        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid md:grid-cols-[1fr_1.1fr] gap-8 md:gap-12 items-center">
           {/* Text Content (Left) */}
           <div className="text-left max-w-xl">
             <motion.div
@@ -141,14 +141,14 @@ export default function App() {
           </div>
 
           {/* Hero Image Centerpiece (Right) */}
-          <div className="relative">
+          <div className="relative flex justify-center md:justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative z-10"
+              className="relative z-10 w-full max-w-[500px] lg:max-w-[600px] xl:max-w-[650px]"
             >
-              <div className="relative aspect-square rounded-full overflow-hidden border-8 border-white/5 shadow-[0_0_80px_rgba(0,0,0,0.6)]">
+              <div className="relative aspect-square rounded-full overflow-hidden border-[12px] border-white/5 shadow-[0_0_100px_rgba(0,0,0,0.8)]">
                 <img
                   src="/hero_west_african.png"
                   alt="Signature Jollof Rice"
