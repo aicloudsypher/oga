@@ -101,9 +101,9 @@ export default function App() {
       </AnimatePresence>
 
       {/* Split Hero Section */}
-      <section className="relative min-h-screen lg:h-screen flex flex-col lg:flex-row overflow-hidden bg-secondary">
+      <section className="relative min-h-screen md:h-screen flex flex-col md:flex-row overflow-hidden bg-secondary">
         {/* Left Side: Images */}
-        <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-full overflow-hidden flex">
+        <div className="relative w-full md:w-1/2 h-[50vh] md:h-full overflow-hidden flex">
           {/* Main Hero Image */}
           <div className="absolute inset-0 z-0 scale-110">
             <img
@@ -146,7 +146,7 @@ export default function App() {
         </div>
 
         {/* Right Side: Text in Pyramid Shape */}
-        <div className="relative w-full lg:w-1/2 h-full flex items-center justify-center p-6 lg:p-12">
+        <div className="relative w-full md:w-1/2 h-full flex items-center justify-center p-6 md:p-12">
           {/* Pyramid Graphic Background */}
           <div className="absolute inset-0 flex items-center justify-center -z-0 opacity-20 pointer-events-none">
             <div 
@@ -156,7 +156,7 @@ export default function App() {
           </div>
 
           {/* Text Content */}
-          <div className="relative z-10 text-center max-w-2xl px-4 lg:px-8 mt-12 lg:mt-0">
+          <div className="relative z-10 text-center max-w-2xl px-4 md:px-8 mt-12 md:mt-0">
             <motion.p 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -191,7 +191,7 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 lg:mt-24"
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 md:mt-24"
             >
               <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-primary text-secondary px-10 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-primary-hover hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2">
                 <MapPin size={22} />
