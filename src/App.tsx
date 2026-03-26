@@ -119,9 +119,21 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-56 md:mb-10 leading-tight px-4"
+            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-56 md:mb-10 leading-tight px-4 drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
           >
-            The Heartbeat of <br/><span className="text-primary italic">African Cuisine</span>
+            The Heartbeat of <br/>
+            <span className="relative inline-block mt-2">
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#FFF2AD] to-primary italic">
+                African Cuisine
+              </span>
+              <motion.span 
+                initial={{ width: 0 }}
+                whileInView={{ width: '110%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="absolute bottom-2 -left-[5%] h-3 md:h-5 bg-primary/20 -z-10 -rotate-1 rounded-sm backdrop-blur-[2px]"
+              />
+            </span>
           </motion.h1>
           
           <div className="h-48 md:h-0" />
