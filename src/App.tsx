@@ -124,6 +124,8 @@ export default function App() {
             The Heartbeat of <br/><span className="text-primary italic">African Cuisine</span>
           </motion.h1>
           
+          <div className="h-48 md:h-0" />
+
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
