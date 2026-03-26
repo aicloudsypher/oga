@@ -119,7 +119,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-32 md:mb-10 leading-tight px-4"
+            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-56 md:mb-10 leading-tight px-4"
           >
             The Heartbeat of <br/><span className="text-primary italic">African Cuisine</span>
           </motion.h1>
