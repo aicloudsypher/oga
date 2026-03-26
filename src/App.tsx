@@ -90,69 +90,109 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Hero Section */}
-      <section className="relative h-[85vh] md:h-screen flex items-start md:items-center justify-center overflow-hidden pt-20 md:pt-0">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/hero_west_african.png"
-            alt="Authentic West African Jollof and Egusi"
-            className="w-full h-full object-cover object-center"
-            referrerPolicy="no-referrer"
-          />
-          {/* Gradient just for the top nav and bottom transition */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-secondary"></div>
-          {/* Soft radial glow behind text to ensure readability without darkening the whole image */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.4)_0%,transparent_50%)]"></div>
+      {/* Split Hero Section */}
+      <section className="relative min-h-screen lg:h-screen flex flex-col lg:flex-row overflow-hidden bg-secondary">
+        {/* Left Side: Images */}
+        <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-full overflow-hidden flex">
+          {/* Main Hero Image */}
+          <div className="absolute inset-0 z-0 scale-110">
+            <img
+              src="/hero_west_african.png"
+              alt="Authentic West African Cuisine"
+              className="w-full h-full object-cover object-center transition-transform duration-10000 hover:scale-125"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          {/* Overlay Grid of smaller images */}
+          <div className="absolute inset-0 z-10 bg-black/30 pointer-events-none"></div>
+          <div className="relative z-20 w-full h-full flex items-end p-8">
+            <div className="grid grid-cols-3 gap-3 w-full max-w-md">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="aspect-square rounded-lg border-2 border-primary/50 overflow-hidden shadow-2xl"
+              >
+                <img src="/gallery/fufu_soup.png" alt="Fufu & Soup" className="w-full h-full object-cover" />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="aspect-square rounded-lg border-2 border-primary/50 overflow-hidden shadow-2xl"
+              >
+                <img src="/gallery/pilau.png" alt="Kenyan Pilau" className="w-full h-full object-cover" />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="aspect-square rounded-lg border-2 border-primary/50 overflow-hidden shadow-2xl"
+              >
+                <img src="/gallery/suya.png" alt="Suya" className="w-full h-full object-cover" />
+              </motion.div>
+            </div>
+          </div>
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto drop-shadow-2xl">
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-primary font-medium tracking-[0.2em] uppercase mb-4 text-sm md:text-base"
-          >
-            Welcome to Oga Madam Kitchen
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-7xl lg:text-8xl font-serif text-white mb-56 md:mb-10 leading-tight px-4 drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
-          >
-            The Heartbeat of <br/>
-            <span className="relative inline-block mt-2">
-              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#FFF2AD] to-primary italic">
-                African Cuisine
-              </span>
-              <motion.span 
-                initial={{ width: 0 }}
-                whileInView={{ width: '110%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute bottom-2 -left-[5%] h-3 md:h-5 bg-primary/20 -z-10 -rotate-1 rounded-sm backdrop-blur-[2px]"
-              />
-            </span>
-          </motion.h1>
-          
-          <div className="h-48 md:h-0" />
+        {/* Right Side: Text in Pyramid Shape */}
+        <div className="relative w-full lg:w-1/2 h-full flex items-center justify-center p-6 lg:p-12">
+          {/* Pyramid Graphic Background */}
+          <div className="absolute inset-0 flex items-center justify-center -z-0 opacity-20 pointer-events-none">
+            <div 
+              className="w-[80%] h-[80%] bg-primary/20 backdrop-blur-md"
+              style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
+            ></div>
+          </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-primary text-secondary px-8 py-4 rounded font-semibold uppercase tracking-wide hover:bg-primary-hover transition-colors flex items-center justify-center gap-2">
-              <MapPin size={20} />
-              Visit Us
-            </a>
-            <button onClick={() => scrollToSection("services")} className="w-full sm:w-auto bg-transparent border border-white/30 text-white px-8 py-4 rounded font-semibold uppercase tracking-wide hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
-              Learn More
-              <ArrowRight size={20} />
-            </button>
-          </motion.div>
+          {/* Text Content */}
+          <div className="relative z-10 text-center max-w-2xl px-4 lg:px-8 mt-12 lg:mt-0">
+            <motion.p 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="text-primary font-bold tracking-[0.3em] uppercase mb-6 text-sm md:text-base bg-white/5 py-2 px-6 rounded-full inline-block backdrop-blur-sm"
+            >
+              Welcome to Oga Madam Kitchen
+            </motion.p>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-12 leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
+            >
+              The Heartbeat <br/>
+              <span className="relative inline-block mt-4">
+                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#FFF2AD] to-primary italic">
+                  African Cuisine
+                </span>
+                <motion.span 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '110%' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="absolute bottom-2 -left-[5%] h-3 md:h-5 bg-primary/30 -z-10 -rotate-1 rounded-sm"
+                />
+              </span>
+            </motion.h1>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 lg:mt-24"
+            >
+              <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-primary text-secondary px-10 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-primary-hover hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2">
+                <MapPin size={22} />
+                Visit Us
+              </a>
+              <button onClick={() => scrollToSection("services")} className="w-full sm:w-auto bg-white/5 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-white/10 hover:scale-105 transition-all flex items-center justify-center gap-2">
+                Learn More
+                <ArrowRight size={22} />
+              </button>
+            </motion.div>
+          </div>
         </div>
       </section>
 
