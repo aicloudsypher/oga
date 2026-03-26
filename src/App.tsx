@@ -93,8 +93,8 @@ export default function App() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/hero_african_feast.png"
-            alt="Authentic African Feast"
+            src="/hero_west_african.png"
+            alt="Authentic West African Jollof and Egusi"
             className="w-full h-full object-cover object-center"
             referrerPolicy="no-referrer"
           />
